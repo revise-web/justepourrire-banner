@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: justepourrire-banner
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    plan: free
+
+cron:
+  - name: update-banner
+    schedule: "@hourly"
+    command: "python banner.py"
